@@ -1,0 +1,84 @@
+package akash0610;
+import java.util.Scanner;
+
+//Base class
+class Shape {
+ String color;
+
+ Shape(String color) {
+     this.color = color;
+ }
+
+ void displayInfo() {
+     System.out.println("Shape color: " + color);
+ }
+}
+
+//Derived class: Circle
+class Circle extends Shape {
+ double radius;
+
+ Circle(String color, double radius) {
+     super(color);
+     this.radius = radius;
+ }
+
+ double getArea() {
+     return Math.PI * radius * radius;
+ }
+
+ @Override
+ void displayInfo() {
+     System.out.println("Circle color: " + color + ", Radius: " + radius + ", Area: " + getArea());
+ }
+}
+
+//Derived class: Rectangle
+class Rectangle extends Shape {
+ double length, width;
+
+ Rectangle(String color, double length, double width) {
+     super(color);
+     this.length = length;
+     this.width = width;
+ }
+
+ double getArea() {
+     return length * width;
+ }
+
+ @Override
+ void displayInfo() {
+     System.out.println("Rectangle color: " + color + ", Length: " + length + ", Width: " + width + ", Area: " + getArea());
+ }
+}
+
+//Main class
+public class inhertance {
+ public static void main(String[] args) {
+     Scanner scanner = new Scanner(System.in);
+
+     // Input for Circle
+     System.out.print("Enter color of the circle: ");
+     String circleColor = scanner.nextLine();
+     System.out.print("Enter radius of the circle: ");
+     double radius = scanner.nextDouble();
+     scanner.nextLine(); // consume newline
+
+     Circle circle = new Circle(circleColor, radius);
+     circle.displayInfo();
+
+     // Input for Rectangle
+     System.out.print("Enter color of the rectangle: ");
+     String rectangleColor = scanner.nextLine();
+     System.out.print("Enter length of the rectangle: ");
+     double length = scanner.nextDouble();
+     System.out.print("Enter width of the rectangle: ");
+     double width = scanner.nextDouble();
+
+     Rectangle rectangle = new Rectangle(rectangleColor, length, width);
+     rectangle.displayInfo();
+
+     scanner.close();
+ }
+}
